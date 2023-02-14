@@ -1,21 +1,25 @@
 //your code here
 var btn = document.getElementById("btn")
 var ptag = document.getElementById("num")
-var input = document.getElementById("guess").value;
+var inputValue = document.getElementById("guess").value;
 var respond = document.getElementById("respond")
 
-var diff = Number(input) - Number(ptag.value);
-if(Math.abs(diff) <=5 ){
-respond.textContent="Hot"
-}else{
-  respond.textContent="Cold"
-}
-
-
-
 function getRandomNumber(){
-var number = Math.floor(Math.random() * 40) - 20;
-ptag.textContent = number
-
+ random = Math.floor(Math.random() * 40) - 20;
+document.getElementById("num").innerText = random;
+	guessNum();
+	print();
 }
+function guessNum() {
+	input = Number(document.getElementById("guess").value);
+}
+function print() {
+if(Math.abs(random - input) <=5 ){
+document.getElementById("respond").innerText="Hot";
+}else{
+document.getElementById("respond").innerHTML="cold";
+}	
+	
+}
+
 btn.addEventListener("click",getRandomNumber)
